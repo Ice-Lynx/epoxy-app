@@ -1,23 +1,23 @@
 {
   "files": {
     "main.css": "/epoxy-app/static/css/main.961b475a.chunk.css",
-    "main.js": "/epoxy-app/static/js/main.a3b8e57a.chunk.js",
-    "main.js.map": "/epoxy-app/static/js/main.a3b8e57a.chunk.js.map",
+    "main.js": "/epoxy-app/static/js/main.7d2eb4a9.chunk.js",
+    "main.js.map": "/epoxy-app/static/js/main.7d2eb4a9.chunk.js.map",
     "runtime-main.js": "/epoxy-app/static/js/runtime-main.d22bd4b7.js",
     "runtime-main.js.map": "/epoxy-app/static/js/runtime-main.d22bd4b7.js.map",
-    "static/js/2.78ca42f7.chunk.js": "/epoxy-app/static/js/2.78ca42f7.chunk.js",
-    "static/js/2.78ca42f7.chunk.js.map": "/epoxy-app/static/js/2.78ca42f7.chunk.js.map",
+    "static/js/2.4608955b.chunk.js": "/epoxy-app/static/js/2.4608955b.chunk.js",
+    "static/js/2.4608955b.chunk.js.map": "/epoxy-app/static/js/2.4608955b.chunk.js.map",
     "static/js/3.bea8d3d0.chunk.js": "/epoxy-app/static/js/3.bea8d3d0.chunk.js",
     "static/js/3.bea8d3d0.chunk.js.map": "/epoxy-app/static/js/3.bea8d3d0.chunk.js.map",
     "index.html": "/epoxy-app/index.html",
     "static/css/main.961b475a.chunk.css.map": "/epoxy-app/static/css/main.961b475a.chunk.css.map",
-    "static/js/2.78ca42f7.chunk.js.LICENSE.txt": "/epoxy-app/static/js/2.78ca42f7.chunk.js.LICENSE.txt",
+    "static/js/2.4608955b.chunk.js.LICENSE.txt": "/epoxy-app/static/js/2.4608955b.chunk.js.LICENSE.txt",
     "static/media/home.40a5108b.svg": "/epoxy-app/static/media/home.40a5108b.svg"
   },
   "entrypoints": [
     "static/js/runtime-main.d22bd4b7.js",
-    "static/js/2.78ca42f7.chunk.js",
+    "static/js/2.4608955b.chunk.js",
     "static/css/main.961b475a.chunk.css",
-    "static/js/main.a3b8e57a.chunk.js"
+    "static/js/main.7d2eb4a9.chunk.js"
   ]
 }
