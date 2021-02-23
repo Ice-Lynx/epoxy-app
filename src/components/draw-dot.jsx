@@ -3,6 +3,7 @@ import styled from "styled-components";
 
 export function DrawDot() {
   const [circles, setCircles] = useState([]);
+  const [lines, setLines] = useState([]);
 
   const getClickCoords = (event) => {
     // from: https://stackoverflow.com/a/29296049/14198287
@@ -15,8 +16,24 @@ export function DrawDot() {
 
   const addCircle = (event) => {
     let [x, y] = getClickCoords(event);
-    let newCircle = <circle key={circles.length + 1} cx={x} cy={y} r="4" />;
+
+    let newCircle = <circle key={x * 100000 + y} cx={x} cy={y} r="4" />;
     let allCircles = [...circles, newCircle];
+
+    let newLine = <line></line>;
+    if (circles.length > 0) {
+      newLine = (
+        <line
+          key={x * 100000 + y}
+          x1={circles[circles.length - 1].props.cx}
+          y1={circles[circles.length - 1].props.cy}
+          x2={x}
+          y2={y}
+          stroke="black"
+        />
+      );
+    }
+    let allLines = [...lines, newLine];
 
     // Point to point distance calculation
     function calcDistance(x1, y1, x2, y2) {
@@ -31,31 +48,67 @@ export function DrawDot() {
 
     // Logic that checks if there is free space to draw another circle
     if (circles.length < 1) {
-      console.log("Array was empty, initial circle added");
       setCircles(allCircles);
+      console.log("Array was empty, first element added");
     } else if (
       circles.every(
         (circles) =>
           calcDistance(circles.props.cx, circles.props.cy, x, y) > minDist
       ) === true
     ) {
-      console.log(
-        "New circle location has no conflicts. New circle added"
-      );
       setCircles(allCircles);
+      // if (circles.length > 2) {
+      //   allLines.push(
+      //     <line
+      //       key={x * 100000 + y}
+      //       x1={x}
+      //       y1={y}
+      //       x2={circles[0].props.cx}
+      //       y2={circles[0].props.cy}
+      //       stroke="black"
+      //     />
+      //   );
+      // }
+      setLines(allLines);
+      console.log("New circle added");
     } else {
-      console.log("There is no room to draw a new circle. Drawing request rejected");
+      let clickedElement = circles.findIndex(
+        (circles) =>
+          calcDistance(circles.props.cx, circles.props.cy, x, y) < minDist
+      );
+      console.log("No room");
+      console.log(clickedElement);
+
+      allCircles.pop();
+      allCircles.splice(clickedElement, 1);
+
+      allLines.pop();
+      allLines.splice(
+        clickedElement - 1,
+        2,
+        <line
+          key={x * 100000 + y}
+          x1={circles[clickedElement - 1].props.cx}
+          y1={circles[clickedElement - 1].props.cy}
+          x2={circles[clickedElement + 1].props.cx}
+          y2={circles[clickedElement + 1].props.cy}
+          stroke="black"
+        />
+      );
+
+      setCircles(allCircles);
+      setLines(allLines);
     }
   };
 
-  // console.log(circles);
+  console.log(circles);
 
   return (
     <Container>
       <p>Click to draw dots</p>
-      <ClickableSVG onClick={addCircle}>
-        {/* This loads your circles in the circles hook here */}
+      <ClickableSVG onMouseDown={addCircle}>
         {circles}
+        {lines}
       </ClickableSVG>
     </Container>
   );
