@@ -14,7 +14,7 @@ export function DrawDot() {
   };
 
   const addCircle = (event) => {
-    let [x, y] = getClickCoords(event); //click coordinates
+    let [x, y] = getClickCoords(event);
     let newCircle = <circle key={circles.length + 1} cx={x} cy={y} r="4" />;
     let allCircles = [...circles, newCircle];
 
@@ -26,17 +26,29 @@ export function DrawDot() {
       return d;
     }
 
+    // If distance between previous and new circle is smaller than minDistance then user can not add a new circle
+    let minDist = 10;
+
+    // Logic that checks if there is free space to draw another circle
     if (circles.length < 1) {
+      console.log("Array was empty, initial circle added");
       setCircles(allCircles);
+    } else if (
+      circles.every(
+        (circles) =>
+          calcDistance(circles.props.cx, circles.props.cy, x, y) > minDist
+      ) === true
+    ) {
+      console.log(
+        "New circle location has no conflicts. New circle added"
+      );
+      setCircles(allCircles);
+    } else {
+      console.log("There is no room to draw a new circle. Drawing request rejected");
     }
-
-    let distance = calcDistance(1, 1, 5, 5);
-
-    console.log(distance);
-
   };
 
-  console.log(circles);
+  // console.log(circles);
 
   return (
     <Container>

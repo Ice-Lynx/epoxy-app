@@ -34,15 +34,17 @@ export default function App() {
     <Router>
       <div class="wrapper">
         <div class="header">
-          <Link to="/">
-            <img src={HomeLogo} class="App-logo" alt="logo" />
-          </Link>
-          <Link to="/dot-app">
-            <div class="header-button">Dots</div>
-          </Link>
-          <Link to="/slider-app">
-            <div class="header-button">Sliders</div>
-          </Link>
+          <div class="header-content">
+            <Link to="/">
+              <img src={HomeLogo} class="App-logo" alt="logo" />
+            </Link>
+            <Link to="/dot-app">
+              <div class="header-button">Dots</div>
+            </Link>
+            <Link to="/slider-app">
+              <div class="header-button">Sliders</div>
+            </Link>
+          </div>
         </div>
 
         <div class="body">
