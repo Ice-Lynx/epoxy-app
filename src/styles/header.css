@@ -1,0 +1,19 @@
+
+.header{
+  min-height: 35px;
+  background: rgb(49, 49, 49);
+  color: rgb(245, 245, 245);
+  display: flex;
+  padding-left: 10px;
+  justify-content: left;
+  align-items: center;
+  text-decoration: none;
+}
+
+.header-button{
+  margin-left: 20px;
+  display: flex;
+  height: 100%;
+  color:white;
+  text-underline-offset: 100px;
+}

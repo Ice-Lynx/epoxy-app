@@ -1,0 +1,10 @@
+.slider-component{
+    border: solid;
+    border-width: 1px;
+    border-color: black;
+    padding: 10px;
+}
+
+.slider-component button {
+    margin-right: 10px;
+}
